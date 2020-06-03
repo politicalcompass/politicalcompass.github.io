@@ -348,8 +348,6 @@ function checkCookieIndicator() {
 
 function loadQ() {
     // checkCookies()
-    checkCookieLibright()
-    checkCookieIndicator()
     currUrl = window.location.href
     var secretCode = 'qqqqqqqqqqqqqqqqqqqqq'
     if (currUrl.includes('?')) {
