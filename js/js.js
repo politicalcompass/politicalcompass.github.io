@@ -3,7 +3,7 @@
 var e0 = 0.38
 var s0 = 2.41
 
-var DEBUG = 1
+var DEBUG = 0
 
 econv = [
     //[4.5, 2.5, -2.5, -4.5],
