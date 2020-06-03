@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Political Compass assistant</title>
+  <meta name="Description" content="Get your Political Compass results in real time, and change your answers on the fly">
+	<meta name="Keywords" content="political compass,political,compass,formula,calculated,how,interactive,sandbox,live">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="favicon.ico" rel="Political Compass icon" type="image/x-icon" />
+  <script src="js/js.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/css.css" />
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<!--Made by "W.u.m.b.o.l.o" (w/o dots) on twitter and youtube / "W.u.m.b.o.l.o.8.3" (w/o dots) on reddit-->
+<body>
+  <div class="container-fluid cont-fluid">
+  <div class="row all-cont overflow-visible">
+  <div class="head-cont col-auto">
+    <div class="head-cont2">
+      <div class="pc-cont">
+        <div class="svg-container">
+          <div class="svg-container2">
+            <svg viewBox="0 0 100 100"> 
+              <rect width="50" height="50" style="fill:rgb(255,117,117);" />
+              <rect width="50" height="50" x="50" style="fill:rgb(66,170,255);" />
+              <rect width="50" height="50" y="50" style="fill:rgb(154,237,151);" />
+              <rect width="50" height="50" x="50" y="50" id="libright" style="fill:rgb(245,244,113);" />
+
+              <defs>
+                <pattern id="smallGrid" width="5" height="5" patternUnits="userSpaceOnUse">
+                  <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgb(184,184,184)" stroke-width="0.5"/>
+                </pattern>
+                <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                  <rect width="50" height="50" fill="url(#smallGrid)"/>
+                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgb(184,184,184)" stroke-width="1"/>
+                </pattern>
+              </defs>
+            
+              <rect width="100" height="100" fill="url(#grid)" />
+              <rect style="transform: rotate(180deg);transform-origin: 50% 50%;" width="100" height="100" fill="url(#grid)" />
+
+              <circle cx="-51.9" cy="-37.95" r="2.5" stroke="black" stroke-width="0.3" fill="red" id="circ" />
+              <!-- <circle cx="51.9" cy="37.95" r="2.5" stroke="black" stroke-width="0.3" fill="red" id="circ" /> -->
+            </svg>
+            <!--page-header?-->
+          </div>
+        </div>
+      </div>
+      <!-- <div class="page-header">
+        <div class="float-left">
+          <h4>Economic <span id="displayEcon">0.38</span></h4>
+        </div>
+        <div class="float-right fl-ri-soc">
+          <h4 class="text-right">Social <span id="displaySoc">2.41</span></h4>
+        </div>
+        <div class="clearfix"></div>
+      </div> -->
+      <h4 id="h4disp">&nbsp;</h4>
+      <div class="row">
+        <div class="col btn-group flex-wrap text-center cent-col" role="group" aria-label="Options">
+          <button type="button" class="btn btn-sm btn-primary" onclick="cpyCb()">Copy link to save current answers</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col btn-group flex-wrap text-center cent-col" role="group" aria-label="Options">
+          <button type="button" class="btn btn-sm btn-light" onclick="reset()">Reset</button>
+          <button type="button" class="btn btn-sm btn-light" onclick="window.history.back()">Undo</button>
+          <button type="button" class="btn btn-sm btn-light" onclick="window.history.forward()">Redo</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col btn-group flex-wrap text-center cent-col" role="group" aria-label="Options">
+          <button type="button" class="btn btn-sm btn-light" id="switchLibright" onclick="switchLibright()">Purple libright</button>
+          <button type="button" class="btn btn-sm btn-light" id="switchIndicator" onclick="switchIndicator()">Tiny indicator</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form class="col overflow-auto">
+    <fieldset class="form-group">
+      <div class="row">
+        <p class="col-form-label col-auto">Page 1</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">1</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q1" id="q1a1" value="sd" onclick="ans(0, 0)">
+            <label class="form-check-label" for="q1a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q1" id="q1a2" value="d" onclick="ans(0, 1)">
+            <label class="form-check-label" for="q1a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q1" id="q1a3" value="a" onclick="ans(0, 2)" ><!--checked-->
+            <label class="form-check-label" for="q1a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q1" id="q1a4" value="sa" onclick="ans(0, 3)">
+            <label class="form-check-label" for="q1a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">2</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q2" id="q2a1" value="sd" onclick="ans(1, 0)">
+            <label class="form-check-label" for="q2a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q2" id="q2a2" value="d" onclick="ans(1, 1)">
+            <label class="form-check-label" for="q2a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q2" id="q2a3" value="a" onclick="ans(1, 2)" ><!--checked-->
+            <label class="form-check-label" for="q2a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q2" id="q2a4" value="sa" onclick="ans(1, 3)">
+            <label class="form-check-label" for="q2a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">3</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q3" id="q3a1" value="sd" onclick="ans(2, 0)">
+            <label class="form-check-label" for="q3a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q3" id="q3a2" value="d" onclick="ans(2, 1)">
+            <label class="form-check-label" for="q3a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q3" id="q3a3" value="a" onclick="ans(2, 2)" ><!--checked-->
+            <label class="form-check-label" for="q3a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q3" id="q3a4" value="sa" onclick="ans(2, 3)">
+            <label class="form-check-label" for="q3a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">4</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q4" id="q4a1" value="sd" onclick="ans(3, 0)">
+            <label class="form-check-label" for="q4a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q4" id="q4a2" value="d" onclick="ans(3, 1)">
+            <label class="form-check-label" for="q4a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q4" id="q4a3" value="a" onclick="ans(3, 2)" ><!--checked-->
+            <label class="form-check-label" for="q4a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q4" id="q4a4" value="sa" onclick="ans(3, 3)">
+            <label class="form-check-label" for="q4a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">5</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q5" id="q5a1" value="sd" onclick="ans(4, 0)">
+            <label class="form-check-label" for="q5a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q5" id="q5a2" value="d" onclick="ans(4, 1)">
+            <label class="form-check-label" for="q5a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q5" id="q5a3" value="a" onclick="ans(4, 2)" ><!--checked-->
+            <label class="form-check-label" for="q5a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q5" id="q5a4" value="sa" onclick="ans(4, 3)">
+            <label class="form-check-label" for="q5a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">6</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q6" id="q6a1" value="sd" onclick="ans(5, 0)">
+            <label class="form-check-label" for="q6a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q6" id="q6a2" value="d" onclick="ans(5, 1)">
+            <label class="form-check-label" for="q6a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q6" id="q6a3" value="a" onclick="ans(5, 2)" ><!--checked-->
+            <label class="form-check-label" for="q6a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q6" id="q6a4" value="sa" onclick="ans(5, 3)">
+            <label class="form-check-label" for="q6a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-1 pt-0">7</legend>
+        <div class="col-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q7" id="q7a1" value="sd" onclick="ans(6, 0)">
+            <label class="form-check-label" for="q7a1">
+              Strongly disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q7" id="q7a2" value="d" onclick="ans(6, 1)">
+            <label class="form-check-label" for="q7a2">
+              Disagree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q7" id="q7a3" value="a" onclick="ans(6, 2)" ><!--checked-->
+            <label class="form-check-label" for="q7a3">
+              Agree
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="q7" id="q7a4" value="sa" onclick="ans(6, 3)">
+            <label class="form-check-label" for="q7a4">
+              Strongly agree
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <p class="col-form-label col-auto">Page 2</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">1</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q8" id="q8a1" value="sd" onclick="ans(7, 0)">
+    <label class="form-check-label" for="q8a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q8" id="q8a2" value="d" onclick="ans(7, 1)">
+    <label class="form-check-label" for="q8a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q8" id="q8a3" value="a" onclick="ans(7, 2)" ><!--checked-->
+    <label class="form-check-label" for="q8a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q8" id="q8a4" value="sa" onclick="ans(7, 3)">
+    <label class="form-check-label" for="q8a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">2</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q9" id="q9a1" value="sd" onclick="ans(8, 0)">
+    <label class="form-check-label" for="q9a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q9" id="q9a2" value="d" onclick="ans(8, 1)">
+    <label class="form-check-label" for="q9a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q9" id="q9a3" value="a" onclick="ans(8, 2)" ><!--checked-->
+    <label class="form-check-label" for="q9a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q9" id="q9a4" value="sa" onclick="ans(8, 3)">
+    <label class="form-check-label" for="q9a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">3</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q10" id="q10a1" value="sd" onclick="ans(9, 0)">
+    <label class="form-check-label" for="q10a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q10" id="q10a2" value="d" onclick="ans(9, 1)">
+    <label class="form-check-label" for="q10a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q10" id="q10a3" value="a" onclick="ans(9, 2)" ><!--checked-->
+    <label class="form-check-label" for="q10a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q10" id="q10a4" value="sa" onclick="ans(9, 3)">
+    <label class="form-check-label" for="q10a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">4</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q11" id="q11a1" value="sd" onclick="ans(10, 0)">
+    <label class="form-check-label" for="q11a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q11" id="q11a2" value="d" onclick="ans(10, 1)">
+    <label class="form-check-label" for="q11a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q11" id="q11a3" value="a" onclick="ans(10, 2)" ><!--checked-->
+    <label class="form-check-label" for="q11a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q11" id="q11a4" value="sa" onclick="ans(10, 3)">
+    <label class="form-check-label" for="q11a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">5</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q12" id="q12a1" value="sd" onclick="ans(11, 0)">
+    <label class="form-check-label" for="q12a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q12" id="q12a2" value="d" onclick="ans(11, 1)">
+    <label class="form-check-label" for="q12a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q12" id="q12a3" value="a" onclick="ans(11, 2)" ><!--checked-->
+    <label class="form-check-label" for="q12a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q12" id="q12a4" value="sa" onclick="ans(11, 3)">
+    <label class="form-check-label" for="q12a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">6</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q13" id="q13a1" value="sd" onclick="ans(12, 0)">
+    <label class="form-check-label" for="q13a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q13" id="q13a2" value="d" onclick="ans(12, 1)">
+    <label class="form-check-label" for="q13a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q13" id="q13a3" value="a" onclick="ans(12, 2)" ><!--checked-->
+    <label class="form-check-label" for="q13a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q13" id="q13a4" value="sa" onclick="ans(12, 3)">
+    <label class="form-check-label" for="q13a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">7</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q14" id="q14a1" value="sd" onclick="ans(13, 0)">
+    <label class="form-check-label" for="q14a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q14" id="q14a2" value="d" onclick="ans(13, 1)">
+    <label class="form-check-label" for="q14a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q14" id="q14a3" value="a" onclick="ans(13, 2)" ><!--checked-->
+    <label class="form-check-label" for="q14a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q14" id="q14a4" value="sa" onclick="ans(13, 3)">
+    <label class="form-check-label" for="q14a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">8</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q15" id="q15a1" value="sd" onclick="ans(14, 0)">
+    <label class="form-check-label" for="q15a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q15" id="q15a2" value="d" onclick="ans(14, 1)">
+    <label class="form-check-label" for="q15a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q15" id="q15a3" value="a" onclick="ans(14, 2)" ><!--checked-->
+    <label class="form-check-label" for="q15a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q15" id="q15a4" value="sa" onclick="ans(14, 3)">
+    <label class="form-check-label" for="q15a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">9</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q16" id="q16a1" value="sd" onclick="ans(15, 0)">
+    <label class="form-check-label" for="q16a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q16" id="q16a2" value="d" onclick="ans(15, 1)">
+    <label class="form-check-label" for="q16a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q16" id="q16a3" value="a" onclick="ans(15, 2)" ><!--checked-->
+    <label class="form-check-label" for="q16a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q16" id="q16a4" value="sa" onclick="ans(15, 3)">
+    <label class="form-check-label" for="q16a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">10</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q17" id="q17a1" value="sd" onclick="ans(16, 0)">
+    <label class="form-check-label" for="q17a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q17" id="q17a2" value="d" onclick="ans(16, 1)">
+    <label class="form-check-label" for="q17a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q17" id="q17a3" value="a" onclick="ans(16, 2)" ><!--checked-->
+    <label class="form-check-label" for="q17a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q17" id="q17a4" value="sa" onclick="ans(16, 3)">
+    <label class="form-check-label" for="q17a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">11</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q18" id="q18a1" value="sd" onclick="ans(17, 0)">
+    <label class="form-check-label" for="q18a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q18" id="q18a2" value="d" onclick="ans(17, 1)">
+    <label class="form-check-label" for="q18a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q18" id="q18a3" value="a" onclick="ans(17, 2)" ><!--checked-->
+    <label class="form-check-label" for="q18a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q18" id="q18a4" value="sa" onclick="ans(17, 3)">
+    <label class="form-check-label" for="q18a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">12</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q19" id="q19a1" value="sd" onclick="ans(18, 0)">
+    <label class="form-check-label" for="q19a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q19" id="q19a2" value="d" onclick="ans(18, 1)">
+    <label class="form-check-label" for="q19a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q19" id="q19a3" value="a" onclick="ans(18, 2)" ><!--checked-->
+    <label class="form-check-label" for="q19a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q19" id="q19a4" value="sa" onclick="ans(18, 3)">
+    <label class="form-check-label" for="q19a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">13</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q20" id="q20a1" value="sd" onclick="ans(19, 0)">
+    <label class="form-check-label" for="q20a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q20" id="q20a2" value="d" onclick="ans(19, 1)">
+    <label class="form-check-label" for="q20a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q20" id="q20a3" value="a" onclick="ans(19, 2)" ><!--checked-->
+    <label class="form-check-label" for="q20a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q20" id="q20a4" value="sa" onclick="ans(19, 3)">
+    <label class="form-check-label" for="q20a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">14</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q21" id="q21a1" value="sd" onclick="ans(20, 0)">
+    <label class="form-check-label" for="q21a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q21" id="q21a2" value="d" onclick="ans(20, 1)">
+    <label class="form-check-label" for="q21a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q21" id="q21a3" value="a" onclick="ans(20, 2)" ><!--checked-->
+    <label class="form-check-label" for="q21a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q21" id="q21a4" value="sa" onclick="ans(20, 3)">
+    <label class="form-check-label" for="q21a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+    
+    <fieldset class="form-group">
+      <div class="row">
+        <p class="col-form-label col-auto">Page 3</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">1</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q22" id="q22a1" value="sd" onclick="ans(21, 0)">
+    <label class="form-check-label" for="q22a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q22" id="q22a2" value="d" onclick="ans(21, 1)">
+    <label class="form-check-label" for="q22a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q22" id="q22a3" value="a" onclick="ans(21, 2)" ><!--checked-->
+    <label class="form-check-label" for="q22a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q22" id="q22a4" value="sa" onclick="ans(21, 3)">
+    <label class="form-check-label" for="q22a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">2</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q23" id="q23a1" value="sd" onclick="ans(22, 0)">
+    <label class="form-check-label" for="q23a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q23" id="q23a2" value="d" onclick="ans(22, 1)">
+    <label class="form-check-label" for="q23a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q23" id="q23a3" value="a" onclick="ans(22, 2)" ><!--checked-->
+    <label class="form-check-label" for="q23a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q23" id="q23a4" value="sa" onclick="ans(22, 3)">
+    <label class="form-check-label" for="q23a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">3</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q24" id="q24a1" value="sd" onclick="ans(23, 0)">
+    <label class="form-check-label" for="q24a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q24" id="q24a2" value="d" onclick="ans(23, 1)">
+    <label class="form-check-label" for="q24a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q24" id="q24a3" value="a" onclick="ans(23, 2)" ><!--checked-->
+    <label class="form-check-label" for="q24a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q24" id="q24a4" value="sa" onclick="ans(23, 3)">
+    <label class="form-check-label" for="q24a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">4</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q25" id="q25a1" value="sd" onclick="ans(24, 0)">
+    <label class="form-check-label" for="q25a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q25" id="q25a2" value="d" onclick="ans(24, 1)">
+    <label class="form-check-label" for="q25a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q25" id="q25a3" value="a" onclick="ans(24, 2)" ><!--checked-->
+    <label class="form-check-label" for="q25a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q25" id="q25a4" value="sa" onclick="ans(24, 3)">
+    <label class="form-check-label" for="q25a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">5</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q26" id="q26a1" value="sd" onclick="ans(25, 0)">
+    <label class="form-check-label" for="q26a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q26" id="q26a2" value="d" onclick="ans(25, 1)">
+    <label class="form-check-label" for="q26a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q26" id="q26a3" value="a" onclick="ans(25, 2)" ><!--checked-->
+    <label class="form-check-label" for="q26a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q26" id="q26a4" value="sa" onclick="ans(25, 3)">
+    <label class="form-check-label" for="q26a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">6</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q27" id="q27a1" value="sd" onclick="ans(26, 0)">
+    <label class="form-check-label" for="q27a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q27" id="q27a2" value="d" onclick="ans(26, 1)">
+    <label class="form-check-label" for="q27a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q27" id="q27a3" value="a" onclick="ans(26, 2)" ><!--checked-->
+    <label class="form-check-label" for="q27a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q27" id="q27a4" value="sa" onclick="ans(26, 3)">
+    <label class="form-check-label" for="q27a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">7</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q28" id="q28a1" value="sd" onclick="ans(27, 0)">
+    <label class="form-check-label" for="q28a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q28" id="q28a2" value="d" onclick="ans(27, 1)">
+    <label class="form-check-label" for="q28a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q28" id="q28a3" value="a" onclick="ans(27, 2)" ><!--checked-->
+    <label class="form-check-label" for="q28a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q28" id="q28a4" value="sa" onclick="ans(27, 3)">
+    <label class="form-check-label" for="q28a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">8</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q29" id="q29a1" value="sd" onclick="ans(28, 0)">
+    <label class="form-check-label" for="q29a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q29" id="q29a2" value="d" onclick="ans(28, 1)">
+    <label class="form-check-label" for="q29a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q29" id="q29a3" value="a" onclick="ans(28, 2)" ><!--checked-->
+    <label class="form-check-label" for="q29a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q29" id="q29a4" value="sa" onclick="ans(28, 3)">
+    <label class="form-check-label" for="q29a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">9</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q30" id="q30a1" value="sd" onclick="ans(29, 0)">
+    <label class="form-check-label" for="q30a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q30" id="q30a2" value="d" onclick="ans(29, 1)">
+    <label class="form-check-label" for="q30a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q30" id="q30a3" value="a" onclick="ans(29, 2)" ><!--checked-->
+    <label class="form-check-label" for="q30a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q30" id="q30a4" value="sa" onclick="ans(29, 3)">
+    <label class="form-check-label" for="q30a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">10</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q31" id="q31a1" value="sd" onclick="ans(30, 0)">
+    <label class="form-check-label" for="q31a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q31" id="q31a2" value="d" onclick="ans(30, 1)">
+    <label class="form-check-label" for="q31a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q31" id="q31a3" value="a" onclick="ans(30, 2)" ><!--checked-->
+    <label class="form-check-label" for="q31a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q31" id="q31a4" value="sa" onclick="ans(30, 3)">
+    <label class="form-check-label" for="q31a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">11</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q32" id="q32a1" value="sd" onclick="ans(31, 0)">
+    <label class="form-check-label" for="q32a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q32" id="q32a2" value="d" onclick="ans(31, 1)">
+    <label class="form-check-label" for="q32a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q32" id="q32a3" value="a" onclick="ans(31, 2)" ><!--checked-->
+    <label class="form-check-label" for="q32a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q32" id="q32a4" value="sa" onclick="ans(31, 3)">
+    <label class="form-check-label" for="q32a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">12</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q33" id="q33a1" value="sd" onclick="ans(32, 0)">
+    <label class="form-check-label" for="q33a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q33" id="q33a2" value="d" onclick="ans(32, 1)">
+    <label class="form-check-label" for="q33a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q33" id="q33a3" value="a" onclick="ans(32, 2)" ><!--checked-->
+    <label class="form-check-label" for="q33a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q33" id="q33a4" value="sa" onclick="ans(32, 3)">
+    <label class="form-check-label" for="q33a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">13</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q34" id="q34a1" value="sd" onclick="ans(33, 0)">
+    <label class="form-check-label" for="q34a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q34" id="q34a2" value="d" onclick="ans(33, 1)">
+    <label class="form-check-label" for="q34a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q34" id="q34a3" value="a" onclick="ans(33, 2)" ><!--checked-->
+    <label class="form-check-label" for="q34a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q34" id="q34a4" value="sa" onclick="ans(33, 3)">
+    <label class="form-check-label" for="q34a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">14</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q35" id="q35a1" value="sd" onclick="ans(34, 0)">
+    <label class="form-check-label" for="q35a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q35" id="q35a2" value="d" onclick="ans(34, 1)">
+    <label class="form-check-label" for="q35a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q35" id="q35a3" value="a" onclick="ans(34, 2)" ><!--checked-->
+    <label class="form-check-label" for="q35a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q35" id="q35a4" value="sa" onclick="ans(34, 3)">
+    <label class="form-check-label" for="q35a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">15</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q36" id="q36a1" value="sd" onclick="ans(35, 0)">
+    <label class="form-check-label" for="q36a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q36" id="q36a2" value="d" onclick="ans(35, 1)">
+    <label class="form-check-label" for="q36a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q36" id="q36a3" value="a" onclick="ans(35, 2)" ><!--checked-->
+    <label class="form-check-label" for="q36a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q36" id="q36a4" value="sa" onclick="ans(35, 3)">
+    <label class="form-check-label" for="q36a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">16</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q37" id="q37a1" value="sd" onclick="ans(36, 0)">
+    <label class="form-check-label" for="q37a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q37" id="q37a2" value="d" onclick="ans(36, 1)">
+    <label class="form-check-label" for="q37a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q37" id="q37a3" value="a" onclick="ans(36, 2)" ><!--checked-->
+    <label class="form-check-label" for="q37a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q37" id="q37a4" value="sa" onclick="ans(36, 3)">
+    <label class="form-check-label" for="q37a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">17</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q38" id="q38a1" value="sd" onclick="ans(37, 0)">
+    <label class="form-check-label" for="q38a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q38" id="q38a2" value="d" onclick="ans(37, 1)">
+    <label class="form-check-label" for="q38a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q38" id="q38a3" value="a" onclick="ans(37, 2)" ><!--checked-->
+    <label class="form-check-label" for="q38a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q38" id="q38a4" value="sa" onclick="ans(37, 3)">
+    <label class="form-check-label" for="q38a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">18</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q39" id="q39a1" value="sd" onclick="ans(38, 0)">
+    <label class="form-check-label" for="q39a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q39" id="q39a2" value="d" onclick="ans(38, 1)">
+    <label class="form-check-label" for="q39a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q39" id="q39a3" value="a" onclick="ans(38, 2)" ><!--checked-->
+    <label class="form-check-label" for="q39a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q39" id="q39a4" value="sa" onclick="ans(38, 3)">
+    <label class="form-check-label" for="q39a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <p class="col-form-label col-auto">Page 4</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">1</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q40" id="q40a1" value="sd" onclick="ans(39, 0)">
+    <label class="form-check-label" for="q40a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q40" id="q40a2" value="d" onclick="ans(39, 1)">
+    <label class="form-check-label" for="q40a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q40" id="q40a3" value="a" onclick="ans(39, 2)" ><!--checked-->
+    <label class="form-check-label" for="q40a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q40" id="q40a4" value="sa" onclick="ans(39, 3)">
+    <label class="form-check-label" for="q40a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">2</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q41" id="q41a1" value="sd" onclick="ans(40, 0)">
+    <label class="form-check-label" for="q41a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q41" id="q41a2" value="d" onclick="ans(40, 1)">
+    <label class="form-check-label" for="q41a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q41" id="q41a3" value="a" onclick="ans(40, 2)" ><!--checked-->
+    <label class="form-check-label" for="q41a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q41" id="q41a4" value="sa" onclick="ans(40, 3)">
+    <label class="form-check-label" for="q41a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">3</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q42" id="q42a1" value="sd" onclick="ans(41, 0)">
+    <label class="form-check-label" for="q42a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q42" id="q42a2" value="d" onclick="ans(41, 1)">
+    <label class="form-check-label" for="q42a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q42" id="q42a3" value="a" onclick="ans(41, 2)" ><!--checked-->
+    <label class="form-check-label" for="q42a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q42" id="q42a4" value="sa" onclick="ans(41, 3)">
+    <label class="form-check-label" for="q42a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">4</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q43" id="q43a1" value="sd" onclick="ans(42, 0)">
+    <label class="form-check-label" for="q43a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q43" id="q43a2" value="d" onclick="ans(42, 1)">
+    <label class="form-check-label" for="q43a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q43" id="q43a3" value="a" onclick="ans(42, 2)" ><!--checked-->
+    <label class="form-check-label" for="q43a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q43" id="q43a4" value="sa" onclick="ans(42, 3)">
+    <label class="form-check-label" for="q43a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">5</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q44" id="q44a1" value="sd" onclick="ans(43, 0)">
+    <label class="form-check-label" for="q44a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q44" id="q44a2" value="d" onclick="ans(43, 1)">
+    <label class="form-check-label" for="q44a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q44" id="q44a3" value="a" onclick="ans(43, 2)" ><!--checked-->
+    <label class="form-check-label" for="q44a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q44" id="q44a4" value="sa" onclick="ans(43, 3)">
+    <label class="form-check-label" for="q44a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">6</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q45" id="q45a1" value="sd" onclick="ans(44, 0)">
+    <label class="form-check-label" for="q45a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q45" id="q45a2" value="d" onclick="ans(44, 1)">
+    <label class="form-check-label" for="q45a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q45" id="q45a3" value="a" onclick="ans(44, 2)" ><!--checked-->
+    <label class="form-check-label" for="q45a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q45" id="q45a4" value="sa" onclick="ans(44, 3)">
+    <label class="form-check-label" for="q45a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">7</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q46" id="q46a1" value="sd" onclick="ans(45, 0)">
+    <label class="form-check-label" for="q46a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q46" id="q46a2" value="d" onclick="ans(45, 1)">
+    <label class="form-check-label" for="q46a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q46" id="q46a3" value="a" onclick="ans(45, 2)" ><!--checked-->
+    <label class="form-check-label" for="q46a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q46" id="q46a4" value="sa" onclick="ans(45, 3)">
+    <label class="form-check-label" for="q46a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">8</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q47" id="q47a1" value="sd" onclick="ans(46, 0)">
+    <label class="form-check-label" for="q47a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q47" id="q47a2" value="d" onclick="ans(46, 1)">
+    <label class="form-check-label" for="q47a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q47" id="q47a3" value="a" onclick="ans(46, 2)" ><!--checked-->
+    <label class="form-check-label" for="q47a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q47" id="q47a4" value="sa" onclick="ans(46, 3)">
+    <label class="form-check-label" for="q47a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">9</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q48" id="q48a1" value="sd" onclick="ans(47, 0)">
+    <label class="form-check-label" for="q48a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q48" id="q48a2" value="d" onclick="ans(47, 1)">
+    <label class="form-check-label" for="q48a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q48" id="q48a3" value="a" onclick="ans(47, 2)" ><!--checked-->
+    <label class="form-check-label" for="q48a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q48" id="q48a4" value="sa" onclick="ans(47, 3)">
+    <label class="form-check-label" for="q48a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">10</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q49" id="q49a1" value="sd" onclick="ans(48, 0)">
+    <label class="form-check-label" for="q49a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q49" id="q49a2" value="d" onclick="ans(48, 1)">
+    <label class="form-check-label" for="q49a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q49" id="q49a3" value="a" onclick="ans(48, 2)" ><!--checked-->
+    <label class="form-check-label" for="q49a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q49" id="q49a4" value="sa" onclick="ans(48, 3)">
+    <label class="form-check-label" for="q49a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">11</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q50" id="q50a1" value="sd" onclick="ans(49, 0)">
+    <label class="form-check-label" for="q50a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q50" id="q50a2" value="d" onclick="ans(49, 1)">
+    <label class="form-check-label" for="q50a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q50" id="q50a3" value="a" onclick="ans(49, 2)" ><!--checked-->
+    <label class="form-check-label" for="q50a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q50" id="q50a4" value="sa" onclick="ans(49, 3)">
+    <label class="form-check-label" for="q50a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">12</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q51" id="q51a1" value="sd" onclick="ans(50, 0)">
+    <label class="form-check-label" for="q51a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q51" id="q51a2" value="d" onclick="ans(50, 1)">
+    <label class="form-check-label" for="q51a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q51" id="q51a3" value="a" onclick="ans(50, 2)" ><!--checked-->
+    <label class="form-check-label" for="q51a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q51" id="q51a4" value="sa" onclick="ans(50, 3)">
+    <label class="form-check-label" for="q51a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <p class="col-form-label col-auto">Page 5</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">1</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q52" id="q52a1" value="sd" onclick="ans(51, 0)">
+    <label class="form-check-label" for="q52a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q52" id="q52a2" value="d" onclick="ans(51, 1)">
+    <label class="form-check-label" for="q52a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q52" id="q52a3" value="a" onclick="ans(51, 2)" ><!--checked-->
+    <label class="form-check-label" for="q52a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q52" id="q52a4" value="sa" onclick="ans(51, 3)">
+    <label class="form-check-label" for="q52a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">2</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q53" id="q53a1" value="sd" onclick="ans(52, 0)">
+    <label class="form-check-label" for="q53a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q53" id="q53a2" value="d" onclick="ans(52, 1)">
+    <label class="form-check-label" for="q53a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q53" id="q53a3" value="a" onclick="ans(52, 2)" ><!--checked-->
+    <label class="form-check-label" for="q53a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q53" id="q53a4" value="sa" onclick="ans(52, 3)">
+    <label class="form-check-label" for="q53a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">3</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q54" id="q54a1" value="sd" onclick="ans(53, 0)">
+    <label class="form-check-label" for="q54a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q54" id="q54a2" value="d" onclick="ans(53, 1)">
+    <label class="form-check-label" for="q54a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q54" id="q54a3" value="a" onclick="ans(53, 2)" ><!--checked-->
+    <label class="form-check-label" for="q54a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q54" id="q54a4" value="sa" onclick="ans(53, 3)">
+    <label class="form-check-label" for="q54a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">4</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q55" id="q55a1" value="sd" onclick="ans(54, 0)">
+    <label class="form-check-label" for="q55a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q55" id="q55a2" value="d" onclick="ans(54, 1)">
+    <label class="form-check-label" for="q55a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q55" id="q55a3" value="a" onclick="ans(54, 2)" ><!--checked-->
+    <label class="form-check-label" for="q55a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q55" id="q55a4" value="sa" onclick="ans(54, 3)">
+    <label class="form-check-label" for="q55a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">5</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q56" id="q56a1" value="sd" onclick="ans(55, 0)">
+    <label class="form-check-label" for="q56a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q56" id="q56a2" value="d" onclick="ans(55, 1)">
+    <label class="form-check-label" for="q56a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q56" id="q56a3" value="a" onclick="ans(55, 2)" ><!--checked-->
+    <label class="form-check-label" for="q56a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q56" id="q56a4" value="sa" onclick="ans(55, 3)">
+    <label class="form-check-label" for="q56a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <p class="col-form-label col-auto">Page 6</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">1</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q57" id="q57a1" value="sd" onclick="ans(56, 0)">
+    <label class="form-check-label" for="q57a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q57" id="q57a2" value="d" onclick="ans(56, 1)">
+    <label class="form-check-label" for="q57a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q57" id="q57a3" value="a" onclick="ans(56, 2)" ><!--checked-->
+    <label class="form-check-label" for="q57a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q57" id="q57a4" value="sa" onclick="ans(56, 3)">
+    <label class="form-check-label" for="q57a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">2</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q58" id="q58a1" value="sd" onclick="ans(57, 0)">
+    <label class="form-check-label" for="q58a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q58" id="q58a2" value="d" onclick="ans(57, 1)">
+    <label class="form-check-label" for="q58a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q58" id="q58a3" value="a" onclick="ans(57, 2)" ><!--checked-->
+    <label class="form-check-label" for="q58a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q58" id="q58a4" value="sa" onclick="ans(57, 3)">
+    <label class="form-check-label" for="q58a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">3</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q59" id="q59a1" value="sd" onclick="ans(58, 0)">
+    <label class="form-check-label" for="q59a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q59" id="q59a2" value="d" onclick="ans(58, 1)">
+    <label class="form-check-label" for="q59a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q59" id="q59a3" value="a" onclick="ans(58, 2)" ><!--checked-->
+    <label class="form-check-label" for="q59a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q59" id="q59a4" value="sa" onclick="ans(58, 3)">
+    <label class="form-check-label" for="q59a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">4</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q60" id="q60a1" value="sd" onclick="ans(59, 0)">
+    <label class="form-check-label" for="q60a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q60" id="q60a2" value="d" onclick="ans(59, 1)">
+    <label class="form-check-label" for="q60a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q60" id="q60a3" value="a" onclick="ans(59, 2)" ><!--checked-->
+    <label class="form-check-label" for="q60a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q60" id="q60a4" value="sa" onclick="ans(59, 3)">
+    <label class="form-check-label" for="q60a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">5</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q61" id="q61a1" value="sd" onclick="ans(60, 0)">
+    <label class="form-check-label" for="q61a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q61" id="q61a2" value="d" onclick="ans(60, 1)">
+    <label class="form-check-label" for="q61a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q61" id="q61a3" value="a" onclick="ans(60, 2)" ><!--checked-->
+    <label class="form-check-label" for="q61a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q61" id="q61a4" value="sa" onclick="ans(60, 3)">
+    <label class="form-check-label" for="q61a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+    <div class="row">
+    <legend class="col-form-label col-1 pt-0">6</legend>
+    <div class="col-11">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q62" id="q62a1" value="sd" onclick="ans(61, 0)">
+    <label class="form-check-label" for="q62a1">
+    Strongly disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q62" id="q62a2" value="d" onclick="ans(61, 1)">
+    <label class="form-check-label" for="q62a2">
+    Disagree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q62" id="q62a3" value="a" onclick="ans(61, 2)" ><!--checked-->
+    <label class="form-check-label" for="q62a3">
+    Agree
+    </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="q62" id="q62a4" value="sa" onclick="ans(61, 3)">
+    <label class="form-check-label" for="q62a4">
+    Strongly agree
+    </label>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+  
+  <!-- <div style="height:50vh;width:100%"></div> -->
+  </form>
+  </div>
+  </div>
+  <script>
+  </script>
+</body>
+</html>

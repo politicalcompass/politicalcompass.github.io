@@ -1,0 +1,101 @@
+html, body, .all-cont, .cont-fluid {
+  height: 100%;
+}
+
+.svg-container {
+    width: 22em;
+    max-width: 55vh;
+    /* max-width: 90vw; */
+  }
+
+.svg-container2 {
+  max-width: 90vw;
+}
+
+/* .pc-cont, .head-cont {
+  float: right;
+  height: 100%;
+} */
+
+/* .head-cont {
+  float:left;
+  min-height:100%;
+} */
+
+/* .svg-container {
+  position: fixed !important;
+} */  
+
+legend {
+  width: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0 !important;
+  text-align: right;
+}
+
+ form {
+  min-width:16em;
+  /* max-height:100vh; */
+  flex-grow: 1;
+  height:100%;
+  bottom:0;
+  /* top:500px; */
+  /* display:block; */
+  /* right:0; */
+  /* width:100%; */
+  /* min-width:100%; */
+} 
+
+.all-cont {
+  height:100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} 
+
+@media (max-width: 637px) {
+  .all-cont {
+    flex-direction: column;
+  }
+
+  .svg-container {
+    max-width: 35vh;
+  }
+}
+
+@media (max-width: 390px) {
+  h4 {
+    font-size: 6vw !important;
+  }
+}
+
+@media (max-height: 437px) {
+  h4 {
+    font-size: 6vh !important;
+  }
+}
+
+.sep-disp {
+  width: 1em;
+  display: inline-block;
+}
+
+.disp-sp {
+  font-size: 0px;
+}
+
+.cent-col {
+  max-width: 22em !important;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
