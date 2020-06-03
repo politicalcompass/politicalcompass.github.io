@@ -313,20 +313,20 @@ function switchIndicator() {
     }
 }
 
-function checkCookies() {
-    librightCookie = getCookie('libright')
-    if (librightCookie != '') {
-        if (libright != librightCookie) {
-            switchLibright()
-        }
-    }
-    indicatorCookie = getCookie('indicator')
-    if (indicatorCookie != '') {
-        if (indicator != indicatorCookie) {
-            switchIndicator()
-        }
-    }
-}
+// function checkCookies() {
+//     librightCookie = getCookie('libright')
+//     if (librightCookie != '') {
+//         if (libright != librightCookie) {
+//             switchLibright()
+//         }
+//     }
+//     indicatorCookie = getCookie('indicator')
+//     if (indicatorCookie != '') {
+//         if (indicator != indicatorCookie) {
+//             switchIndicator()
+//         }
+//     }
+// }
 
 function checkCookieLibright() {
     librightCookie = getCookie('libright')
@@ -347,7 +347,7 @@ function checkCookieIndicator() {
 }
 
 function loadQ() {
-    checkCookies()
+    // checkCookies()
     currUrl = window.location.href
     var secretCode = 'qqqqqqqqqqqqqqqqqqqqq'
     if (currUrl.includes('?')) {
