@@ -48,7 +48,7 @@ legend {
 } 
 
 .all-cont {
-  height:100vh;
+  height:100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
