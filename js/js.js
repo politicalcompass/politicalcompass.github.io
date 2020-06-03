@@ -328,8 +328,6 @@ function checkCookies() {
     }
 }
 
-checkCookies()
-
 function loadQ() {
     checkCookies()
     currUrl = window.location.href
