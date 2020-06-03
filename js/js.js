@@ -328,24 +328,6 @@ function checkCookies() {
     }
 }
 
-function checkCookieLibright() {
-    librightCookie = getCookie('libright')
-    if (librightCookie != '') {
-        if (libright != librightCookie) {
-            switchLibright()
-        }
-    }
-}
-
-function checkCookieIndicator() {
-    indicatorCookie = getCookie('indicator')
-    if (indicatorCookie != '') {
-        if (indicator != indicatorCookie) {
-            switchIndicator()
-        }
-    }
-}
-
 function loadQ() {
     checkCookies()
     currUrl = window.location.href
