@@ -86,6 +86,28 @@
           <button type="button" class="btn btn-sm btn-light" onclick="reset()">Reset</button>
           <button type="button" class="btn btn-sm btn-light" onclick="window.history.back()">Undo</button>
           <button type="button" class="btn btn-sm btn-light" onclick="window.history.forward()">Redo</button>
+          <button type="button" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#helpModal">Help</button>
+
+          <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="helpModalTitle">Information</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Political Compass questions aren't numbered like those here, so the first letter of each question is also listed next to the answers here. For&nbsp;example, "1&nbsp;B…" means that this is the first question on this page, and that 'B' is the first letter of the question.</p>
+
+                  <p>Your answers are saved in the URL. If you close and re-open this page, the current answers will be loaded.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -106,8 +128,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">1</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">1 I…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q1" id="q1a1" value="sd" onclick="ans(0, 0)">
             <label class="form-check-label" for="q1a1">
@@ -138,8 +160,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">2</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">2 I…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q2" id="q2a1" value="sd" onclick="ans(1, 0)">
             <label class="form-check-label" for="q2a1">
@@ -170,8 +192,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">3</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">3 N…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q3" id="q3a1" value="sd" onclick="ans(2, 0)">
             <label class="form-check-label" for="q3a1">
@@ -202,8 +224,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">4</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">4 O…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q4" id="q4a1" value="sd" onclick="ans(3, 0)">
             <label class="form-check-label" for="q4a1">
@@ -234,8 +256,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">5</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">5 T…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q5" id="q5a1" value="sd" onclick="ans(4, 0)">
             <label class="form-check-label" for="q5a1">
@@ -266,8 +288,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">6</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">6 M…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q6" id="q6a1" value="sd" onclick="ans(5, 0)">
             <label class="form-check-label" for="q6a1">
@@ -298,8 +320,8 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-1 pt-0">7</legend>
-        <div class="col-11">
+        <legend class="col-form-label col-1 pt-0 pl-0">7 T…</legend>
+        <div class="col-11 align-self-center">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="q7" id="q7a1" value="sd" onclick="ans(6, 0)">
             <label class="form-check-label" for="q7a1">
@@ -336,8 +358,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">1</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">1 P…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q8" id="q8a1" value="sd" onclick="ans(7, 0)">
     <label class="form-check-label" for="q8a1">
@@ -368,8 +390,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">2</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">2 C…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q9" id="q9a1" value="sd" onclick="ans(8, 0)">
     <label class="form-check-label" for="q9a1">
@@ -400,8 +422,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">3</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">3 B…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q10" id="q10a1" value="sd" onclick="ans(9, 0)">
     <label class="form-check-label" for="q10a1">
@@ -432,8 +454,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">4</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">4 f…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q11" id="q11a1" value="sd" onclick="ans(10, 0)">
     <label class="form-check-label" for="q11a1">
@@ -464,8 +486,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">5</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">5 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q12" id="q12a1" value="sd" onclick="ans(11, 0)">
     <label class="form-check-label" for="q12a1">
@@ -496,8 +518,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">6</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">6 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q13" id="q13a1" value="sd" onclick="ans(12, 0)">
     <label class="form-check-label" for="q13a1">
@@ -528,8 +550,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">7</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">7 L…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q14" id="q14a1" value="sd" onclick="ans(13, 0)">
     <label class="form-check-label" for="q14a1">
@@ -560,8 +582,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">8</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">8 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q15" id="q15a1" value="sd" onclick="ans(14, 0)">
     <label class="form-check-label" for="q15a1">
@@ -592,8 +614,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">9</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">9 P…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q16" id="q16a1" value="sd" onclick="ans(15, 0)">
     <label class="form-check-label" for="q16a1">
@@ -624,8 +646,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">10</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">10 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q17" id="q17a1" value="sd" onclick="ans(16, 0)">
     <label class="form-check-label" for="q17a1">
@@ -656,8 +678,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">11</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">11 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q18" id="q18a1" value="sd" onclick="ans(17, 0)">
     <label class="form-check-label" for="q18a1">
@@ -688,8 +710,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">12</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">12 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q19" id="q19a1" value="sd" onclick="ans(18, 0)">
     <label class="form-check-label" for="q19a1">
@@ -720,8 +742,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">13</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">13 G…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q20" id="q20a1" value="sd" onclick="ans(19, 0)">
     <label class="form-check-label" for="q20a1">
@@ -752,8 +774,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">14</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">14 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q21" id="q21a1" value="sd" onclick="ans(20, 0)">
     <label class="form-check-label" for="q21a1">
@@ -790,8 +812,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">1</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">1 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q22" id="q22a1" value="sd" onclick="ans(21, 0)">
     <label class="form-check-label" for="q22a1">
@@ -822,8 +844,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">2</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">2 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q23" id="q23a1" value="sd" onclick="ans(22, 0)">
     <label class="form-check-label" for="q23a1">
@@ -854,8 +876,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">3</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">3 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q24" id="q24a1" value="sd" onclick="ans(23, 0)">
     <label class="form-check-label" for="q24a1">
@@ -886,8 +908,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">4</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">4 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q25" id="q25a1" value="sd" onclick="ans(24, 0)">
     <label class="form-check-label" for="q25a1">
@@ -918,8 +940,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">5</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">5 S…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q26" id="q26a1" value="sd" onclick="ans(25, 0)">
     <label class="form-check-label" for="q26a1">
@@ -950,8 +972,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">6</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">6 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q27" id="q27a1" value="sd" onclick="ans(26, 0)">
     <label class="form-check-label" for="q27a1">
@@ -982,8 +1004,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">7</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">7 G…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q28" id="q28a1" value="sd" onclick="ans(27, 0)">
     <label class="form-check-label" for="q28a1">
@@ -1014,8 +1036,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">8</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">8 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q29" id="q29a1" value="sd" onclick="ans(28, 0)">
     <label class="form-check-label" for="q29a1">
@@ -1046,8 +1068,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">9</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">9 P…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q30" id="q30a1" value="sd" onclick="ans(29, 0)">
     <label class="form-check-label" for="q30a1">
@@ -1078,8 +1100,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">10</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">10 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q31" id="q31a1" value="sd" onclick="ans(30, 0)">
     <label class="form-check-label" for="q31a1">
@@ -1110,8 +1132,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">11</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">11 P…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q32" id="q32a1" value="sd" onclick="ans(31, 0)">
     <label class="form-check-label" for="q32a1">
@@ -1142,8 +1164,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">12</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">12 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q33" id="q33a1" value="sd" onclick="ans(32, 0)">
     <label class="form-check-label" for="q33a1">
@@ -1174,8 +1196,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">13</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">13 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q34" id="q34a1" value="sd" onclick="ans(33, 0)">
     <label class="form-check-label" for="q34a1">
@@ -1206,8 +1228,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">14</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">14 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q35" id="q35a1" value="sd" onclick="ans(34, 0)">
     <label class="form-check-label" for="q35a1">
@@ -1238,8 +1260,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">15</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">15 W…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q36" id="q36a1" value="sd" onclick="ans(35, 0)">
     <label class="form-check-label" for="q36a1">
@@ -1270,8 +1292,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">16</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">16 F…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q37" id="q37a1" value="sd" onclick="ans(36, 0)">
     <label class="form-check-label" for="q37a1">
@@ -1302,8 +1324,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">17</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">17 W…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q38" id="q38a1" value="sd" onclick="ans(37, 0)">
     <label class="form-check-label" for="q38a1">
@@ -1334,8 +1356,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">18</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">18 N…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q39" id="q39a1" value="sd" onclick="ans(38, 0)">
     <label class="form-check-label" for="q39a1">
@@ -1372,8 +1394,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">1</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">1 O…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q40" id="q40a1" value="sd" onclick="ans(39, 0)">
     <label class="form-check-label" for="q40a1">
@@ -1404,8 +1426,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">2</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">2 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q41" id="q41a1" value="sd" onclick="ans(40, 0)">
     <label class="form-check-label" for="q41a1">
@@ -1436,8 +1458,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">3</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">3 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q42" id="q42a1" value="sd" onclick="ans(41, 0)">
     <label class="form-check-label" for="q42a1">
@@ -1468,8 +1490,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">4</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">4 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q43" id="q43a1" value="sd" onclick="ans(42, 0)">
     <label class="form-check-label" for="q43a1">
@@ -1500,8 +1522,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">5</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">5 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q44" id="q44a1" value="sd" onclick="ans(43, 0)">
     <label class="form-check-label" for="q44a1">
@@ -1532,8 +1554,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">6</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">6 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q45" id="q45a1" value="sd" onclick="ans(44, 0)">
     <label class="form-check-label" for="q45a1">
@@ -1564,8 +1586,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">7</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">7 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q46" id="q46a1" value="sd" onclick="ans(45, 0)">
     <label class="form-check-label" for="q46a1">
@@ -1596,8 +1618,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">8</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">8 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q47" id="q47a1" value="sd" onclick="ans(46, 0)">
     <label class="form-check-label" for="q47a1">
@@ -1628,8 +1650,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">9</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">9 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q48" id="q48a1" value="sd" onclick="ans(47, 0)">
     <label class="form-check-label" for="q48a1">
@@ -1660,8 +1682,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">10</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">10 M…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q49" id="q49a1" value="sd" onclick="ans(48, 0)">
     <label class="form-check-label" for="q49a1">
@@ -1692,8 +1714,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">11</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">11 M…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q50" id="q50a1" value="sd" onclick="ans(49, 0)">
     <label class="form-check-label" for="q50a1">
@@ -1724,8 +1746,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">12</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">12 M…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q51" id="q51a1" value="sd" onclick="ans(50, 0)">
     <label class="form-check-label" for="q51a1">
@@ -1762,8 +1784,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">1</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">1 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q52" id="q52a1" value="sd" onclick="ans(51, 0)">
     <label class="form-check-label" for="q52a1">
@@ -1794,8 +1816,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">2</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">2 Y…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q53" id="q53a1" value="sd" onclick="ans(52, 0)">
     <label class="form-check-label" for="q53a1">
@@ -1826,8 +1848,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">3</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">3 C…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q54" id="q54a1" value="sd" onclick="ans(53, 0)">
     <label class="form-check-label" for="q54a1">
@@ -1858,8 +1880,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">4</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">4 S…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q55" id="q55a1" value="sd" onclick="ans(54, 0)">
     <label class="form-check-label" for="q55a1">
@@ -1890,8 +1912,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">5</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">5 I…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q56" id="q56a1" value="sd" onclick="ans(55, 0)">
     <label class="form-check-label" for="q56a1">
@@ -1928,8 +1950,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">1</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">1 S…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q57" id="q57a1" value="sd" onclick="ans(56, 0)">
     <label class="form-check-label" for="q57a1">
@@ -1960,8 +1982,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">2</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">2 A…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q58" id="q58a1" value="sd" onclick="ans(57, 0)">
     <label class="form-check-label" for="q58a1">
@@ -1992,8 +2014,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">3</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">3 P…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q59" id="q59a1" value="sd" onclick="ans(58, 0)">
     <label class="form-check-label" for="q59a1">
@@ -2024,8 +2046,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">4</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">4 W…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q60" id="q60a1" value="sd" onclick="ans(59, 0)">
     <label class="form-check-label" for="q60a1">
@@ -2056,8 +2078,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">5</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">5 N…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q61" id="q61a1" value="sd" onclick="ans(60, 0)">
     <label class="form-check-label" for="q61a1">
@@ -2088,8 +2110,8 @@
 
     <fieldset class="form-group">
     <div class="row">
-    <legend class="col-form-label col-1 pt-0">6</legend>
-    <div class="col-11">
+    <legend class="col-form-label col-1 pt-0 pl-0">6 T…</legend>
+    <div class="col-11 align-self-center">
     <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="q62" id="q62a1" value="sd" onclick="ans(61, 0)">
     <label class="form-check-label" for="q62a1">
