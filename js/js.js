@@ -158,7 +158,20 @@ function upd() {
     valE = Math.round((valE + Number.EPSILON) * 100) / 100
     valS = Math.round((valS + Number.EPSILON) * 100) / 100
 
-    document.getElementById('h4disp').innerHTML = 'Economic <span id="displayEcon">' + valE.toString() + '</span><span class="disp-sp">&nbsp;</span><span class="sep-disp"></span>Social <span id="displaySoc">' + valS.toString() + '</span>'
+    valEstr = valE.toString()
+    valSstr = valS.toString()
+
+    if (valEstr == "10.01") valEstr = "10"
+    if (valEstr == "-10.01") valEstr = "-10"
+    if (valSstr == "10.01") valSstr = "10"
+    if (valSstr == "-10.01") valSstr = "-10"
+
+    if (valEstr == "9.99") valEstr = "10"
+    if (valEstr == "-9.99") valEstr = "-10"
+    if (valSstr == "9.99") valSstr = "10"
+    if (valSstr == "-9.99") valSstr = "-10"
+
+    document.getElementById('h4disp').innerHTML = 'Economic <span id="displayEcon">' + valEstr + '</span><span class="disp-sp">&nbsp;</span><span class="sep-disp"></span>Social <span id="displaySoc">' + valSstr + '</span>'
     document.getElementById('circ').setAttribute("cx", (valE * 5.0 + 50).toString())
     document.getElementById('circ').setAttribute("cy", (-valS * 5.0 + 50).toString())
 }
