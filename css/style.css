@@ -49,7 +49,7 @@ legend {
 
 .all-cont {
   height:100%;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   flex-wrap: wrap;
 } 
@@ -100,10 +100,10 @@ legend {
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
-.row {
-  display: block !important;
+body > div > div > form > fieldset > div.row {
+  display: block;
 }
 
 .col-form-label {
-  max-width: none;
+  max-width: none !important;
 }
